@@ -2,6 +2,7 @@ import express from "express";
 import notesRoutes from "./routes/notesRoutes.js"
 import { connectDB } from "./config/db.js";
 import dotenv from "dotenv";
+// import path from 'path'
 import { rateLimit } from 'express-rate-limit'
 import cors from "cors"
 // import rateLimiter from "./middleware/ratelimiter.js";
@@ -9,9 +10,13 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000
-app.use(cors({
+// const __dirname = path.resolve();
+ 
+  app.use(
+  cors({
   origin: 'http://localhost:5173',
 }));
+
 app.use(express.json())
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -31,7 +36,8 @@ app.use((req, res, next) => {
 })
 
 
-app.use("/api/notes", limiter, notesRoutes)
+app.use("/api/notes", limiter, notesRoutes);
+
 
 
 connectDB().then(() => {
