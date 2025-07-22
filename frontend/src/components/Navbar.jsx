@@ -13,7 +13,7 @@ const Navbar = () => {
                     <div className='flex items-center gap-4'>
                         <Link to={"/createPage"} className='btn btn-primary'>
                             <PlusIcon className='size-5' />
-                            <span>New Note</span>
+                            <span>New note</span>
                         </Link>
                     </div>
                 </div>
