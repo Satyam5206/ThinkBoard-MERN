@@ -43,7 +43,7 @@ app.use("/api/notes", limiter, notesRoutes);
 connectDB().then(() => {
 
   app.listen(PORT, () => {
-    console.log("Server Started on PORT :", PORT);
+    console.log("Server started on PORT:", PORT);
 
   });
 });
